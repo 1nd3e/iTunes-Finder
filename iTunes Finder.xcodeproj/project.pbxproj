@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		78C51A7D259632B100A2A6D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51A7C259632B100A2A6D0 /* AppDelegate.swift */; };
-		78C51A7F259632B100A2A6D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51A7E259632B100A2A6D0 /* SceneDelegate.swift */; };
-		78C51A81259632B100A2A6D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51A80259632B100A2A6D0 /* ViewController.swift */; };
-		78C51A84259632B100A2A6D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C51A82259632B100A2A6D0 /* Main.storyboard */; };
 		78C51A86259632B300A2A6D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C51A85259632B300A2A6D0 /* Assets.xcassets */; };
 		78C51A89259632B300A2A6D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C51A87259632B300A2A6D0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,9 +15,6 @@
 /* Begin PBXFileReference section */
 		78C51A79259632B100A2A6D0 /* iTunes Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iTunes Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C51A7C259632B100A2A6D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		78C51A7E259632B100A2A6D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		78C51A80259632B100A2A6D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		78C51A83259632B100A2A6D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78C51A85259632B300A2A6D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78C51A88259632B300A2A6D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78C51A8A259632B400A2A6D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +50,52 @@
 		78C51A7B259632B100A2A6D0 /* iTunes Finder */ = {
 			isa = PBXGroup;
 			children = (
+				78C51A9C2596344000A2A6D0 /* Modules */,
+				78C51A9B2596343B00A2A6D0 /* Views */,
+				78C51A9A2596343600A2A6D0 /* Services */,
+				78C51A992596342100A2A6D0 /* Extensions */,
+				78C51A96259633E800A2A6D0 /* Supporting Files */,
+			);
+			path = "iTunes Finder";
+			sourceTree = "<group>";
+		};
+		78C51A96259633E800A2A6D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
 				78C51A7C259632B100A2A6D0 /* AppDelegate.swift */,
-				78C51A7E259632B100A2A6D0 /* SceneDelegate.swift */,
-				78C51A80259632B100A2A6D0 /* ViewController.swift */,
-				78C51A82259632B100A2A6D0 /* Main.storyboard */,
 				78C51A85259632B300A2A6D0 /* Assets.xcassets */,
 				78C51A87259632B300A2A6D0 /* LaunchScreen.storyboard */,
 				78C51A8A259632B400A2A6D0 /* Info.plist */,
 			);
-			path = "iTunes Finder";
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		78C51A992596342100A2A6D0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		78C51A9A2596343600A2A6D0 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		78C51A9B2596343B00A2A6D0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		78C51A9C2596344000A2A6D0 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +157,6 @@
 			files = (
 				78C51A89259632B300A2A6D0 /* LaunchScreen.storyboard in Resources */,
 				78C51A86259632B300A2A6D0 /* Assets.xcassets in Resources */,
-				78C51A84259632B100A2A6D0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,23 +167,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78C51A81259632B100A2A6D0 /* ViewController.swift in Sources */,
 				78C51A7D259632B100A2A6D0 /* AppDelegate.swift in Sources */,
-				78C51A7F259632B100A2A6D0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		78C51A82259632B100A2A6D0 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				78C51A83259632B100A2A6D0 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		78C51A87259632B300A2A6D0 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -288,7 +308,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5A2X6KMTCZ;
-				INFOPLIST_FILE = "iTunes Finder/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iTunes Finder/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -296,7 +317,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.lazybyte.iTunes-Finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -307,7 +328,8 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5A2X6KMTCZ;
-				INFOPLIST_FILE = "iTunes Finder/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iTunes Finder/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,7 +337,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "ru.lazybyte.iTunes-Finder";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
