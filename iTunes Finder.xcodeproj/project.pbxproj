@@ -71,9 +71,6 @@
 			isa = PBXGroup;
 			children = (
 				78C51A9C2596344000A2A6D0 /* Modules */,
-				78C51A9B2596343B00A2A6D0 /* Views */,
-				78C51A9A2596343600A2A6D0 /* Services */,
-				78C51A992596342100A2A6D0 /* Extensions */,
 				78C51A96259633E800A2A6D0 /* Supporting Files */,
 			);
 			path = "iTunes Finder";
@@ -88,27 +85,6 @@
 				78C51A8A259632B400A2A6D0 /* Info.plist */,
 			);
 			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		78C51A992596342100A2A6D0 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		78C51A9A2596343600A2A6D0 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		78C51A9B2596343B00A2A6D0 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		78C51A9C2596344000A2A6D0 /* Modules */ = {

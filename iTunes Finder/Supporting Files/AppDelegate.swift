@@ -17,12 +17,15 @@ class AppDelegate: UIResponder {
     private lazy var tabBarController: UITabBarController = {
         let searchViewController = SearchConfigurator.shared.configure()
         searchViewController.tabBarItem.title = "Search"
+        searchViewController.tabBarItem.image = UIImage(named: "ic-tab-search")
         
         let searchHistoryViewController = SearchHistoryConfigurator.shared.configure()
         searchHistoryViewController.tabBarItem.title = "History"
+        searchHistoryViewController.tabBarItem.image = UIImage(named: "ic-tab-history")
         
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [searchViewController, searchHistoryViewController]
+        tabBarController.view.tintColor  = .systemPink
         
         return tabBarController
     }()
