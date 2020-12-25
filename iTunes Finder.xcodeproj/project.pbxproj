@@ -10,6 +10,16 @@
 		78C51A7D259632B100A2A6D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51A7C259632B100A2A6D0 /* AppDelegate.swift */; };
 		78C51A86259632B300A2A6D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78C51A85259632B300A2A6D0 /* Assets.xcassets */; };
 		78C51A89259632B300A2A6D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78C51A87259632B300A2A6D0 /* LaunchScreen.storyboard */; };
+		78C51AA425963D9F00A2A6D0 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51A9F25963D9F00A2A6D0 /* SearchPresenter.swift */; };
+		78C51AA525963D9F00A2A6D0 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AA025963D9F00A2A6D0 /* SearchRouter.swift */; };
+		78C51AA625963D9F00A2A6D0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AA125963D9F00A2A6D0 /* SearchViewController.swift */; };
+		78C51AA725963D9F00A2A6D0 /* SearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AA225963D9F00A2A6D0 /* SearchConfigurator.swift */; };
+		78C51AA825963D9F00A2A6D0 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AA325963D9F00A2A6D0 /* Search.swift */; };
+		78C51AB525963DD800A2A6D0 /* SearchHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AB025963DD800A2A6D0 /* SearchHistoryPresenter.swift */; };
+		78C51AB625963DD800A2A6D0 /* SearchHistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AB125963DD800A2A6D0 /* SearchHistoryRouter.swift */; };
+		78C51AB725963DD800A2A6D0 /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AB225963DD800A2A6D0 /* SearchHistoryViewController.swift */; };
+		78C51AB825963DD800A2A6D0 /* SearchHistoryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AB325963DD800A2A6D0 /* SearchHistoryConfigurator.swift */; };
+		78C51AB925963DD800A2A6D0 /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AB425963DD800A2A6D0 /* SearchHistory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +28,16 @@
 		78C51A85259632B300A2A6D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78C51A88259632B300A2A6D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78C51A8A259632B400A2A6D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78C51A9F25963D9F00A2A6D0 /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		78C51AA025963D9F00A2A6D0 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		78C51AA125963D9F00A2A6D0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		78C51AA225963D9F00A2A6D0 /* SearchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfigurator.swift; sourceTree = "<group>"; };
+		78C51AA325963D9F00A2A6D0 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		78C51AB025963DD800A2A6D0 /* SearchHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryPresenter.swift; sourceTree = "<group>"; };
+		78C51AB125963DD800A2A6D0 /* SearchHistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryRouter.swift; sourceTree = "<group>"; };
+		78C51AB225963DD800A2A6D0 /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
+		78C51AB325963DD800A2A6D0 /* SearchHistoryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryConfigurator.swift; sourceTree = "<group>"; };
+		78C51AB425963DD800A2A6D0 /* SearchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +114,114 @@
 		78C51A9C2596344000A2A6D0 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				78C51A9D25963D8E00A2A6D0 /* Search */,
+				78C51A9E25963D9400A2A6D0 /* Search History */,
 			);
 			path = Modules;
+			sourceTree = "<group>";
+		};
+		78C51A9D25963D8E00A2A6D0 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				78C51AAF25963DBA00A2A6D0 /* Model */,
+				78C51AAE25963DB700A2A6D0 /* View */,
+				78C51AAD25963DB000A2A6D0 /* Presenter */,
+				78C51AAC25963DAC00A2A6D0 /* Router */,
+				78C51AAA25963DA300A2A6D0 /* Configurator */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		78C51A9E25963D9400A2A6D0 /* Search History */ = {
+			isa = PBXGroup;
+			children = (
+				78C51ABF25963DEF00A2A6D0 /* Model */,
+				78C51ABE25963DEC00A2A6D0 /* View */,
+				78C51ABD25963DE600A2A6D0 /* Presenter */,
+				78C51ABC25963DE200A2A6D0 /* Router */,
+				78C51ABB25963DDC00A2A6D0 /* Configurator */,
+			);
+			path = "Search History";
+			sourceTree = "<group>";
+		};
+		78C51AAA25963DA300A2A6D0 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				78C51AA225963D9F00A2A6D0 /* SearchConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		78C51AAC25963DAC00A2A6D0 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				78C51AA025963D9F00A2A6D0 /* SearchRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		78C51AAD25963DB000A2A6D0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				78C51A9F25963D9F00A2A6D0 /* SearchPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		78C51AAE25963DB700A2A6D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				78C51AA125963D9F00A2A6D0 /* SearchViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		78C51AAF25963DBA00A2A6D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78C51AA325963D9F00A2A6D0 /* Search.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		78C51ABB25963DDC00A2A6D0 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				78C51AB325963DD800A2A6D0 /* SearchHistoryConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		78C51ABC25963DE200A2A6D0 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				78C51AB125963DD800A2A6D0 /* SearchHistoryRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		78C51ABD25963DE600A2A6D0 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				78C51AB025963DD800A2A6D0 /* SearchHistoryPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		78C51ABE25963DEC00A2A6D0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				78C51AB225963DD800A2A6D0 /* SearchHistoryViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		78C51ABF25963DEF00A2A6D0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				78C51AB425963DD800A2A6D0 /* SearchHistory.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -167,6 +293,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78C51AB925963DD800A2A6D0 /* SearchHistory.swift in Sources */,
+				78C51AA725963D9F00A2A6D0 /* SearchConfigurator.swift in Sources */,
+				78C51AB825963DD800A2A6D0 /* SearchHistoryConfigurator.swift in Sources */,
+				78C51AA525963D9F00A2A6D0 /* SearchRouter.swift in Sources */,
+				78C51AB525963DD800A2A6D0 /* SearchHistoryPresenter.swift in Sources */,
+				78C51AA425963D9F00A2A6D0 /* SearchPresenter.swift in Sources */,
+				78C51AA825963D9F00A2A6D0 /* Search.swift in Sources */,
+				78C51AB625963DD800A2A6D0 /* SearchHistoryRouter.swift in Sources */,
+				78C51AA625963D9F00A2A6D0 /* SearchViewController.swift in Sources */,
+				78C51AB725963DD800A2A6D0 /* SearchHistoryViewController.swift in Sources */,
 				78C51A7D259632B100A2A6D0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
