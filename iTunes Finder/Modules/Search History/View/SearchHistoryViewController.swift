@@ -9,9 +9,19 @@ import UIKit
 
 final class SearchHistoryViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - Public Properties
     
     var presenter: SearchHistoryPresenterProtocol?
+    
+    // MARK: - Private Properties
+    
+    private lazy var placeholderView: PlaceholderView = {
+        let image = UIImage(named: "search-history-placeholder")
+        let title = "No search history";  let subtitle = "Why don't you try searching for something? Lady Gaga, for example."
+        let placeholderView = PlaceholderView(image: image, title: title, subtitle: subtitle)
+        
+        return placeholderView
+    }()
     
     // MARK: - UIViewController Events
     
@@ -64,7 +74,18 @@ extension SearchHistoryViewController {
 extension SearchHistoryViewController {
     
     // Groups all methods that are configuring the view.
-    private func configureViews() {}
+    private func configureViews() {
+        configurePlaceholderView()
+    }
+    
+    // Configures a placeholder view.
+    private func configurePlaceholderView() {
+        self.view.addSubview(placeholderView)
+        
+        // Setting up constraints
+        placeholderView.horizontalToSuperview()
+        placeholderView.verticalToSuperview()
+    }
     
 }
 

@@ -34,6 +34,14 @@ final class SearchViewController: UIViewController {
         return collectionView
     }()
     
+    private lazy var placeholderView: PlaceholderView = {
+        let image = UIImage(named: "search-placeholder")
+        let title = "Empty";  let subtitle = "Try searching for a some song."
+        let placeholderView = PlaceholderView(image: image, title: title, subtitle: subtitle)
+        
+        return placeholderView
+    }()
+    
     // MARK: - UIViewController Events
     
     override func viewDidLoad() {
@@ -88,6 +96,7 @@ extension SearchViewController {
     private func configureViews() {
         configureSearchBar()
         configureCollectionView()
+        configurePlaceholderView()
     }
     
     // Configures a search bar in the navigation bar.
@@ -110,6 +119,15 @@ extension SearchViewController {
         // Setting up constraints
         collectionView.horizontalToSuperview(usingSafeArea: true)
         collectionView.verticalToSuperview(usingSafeArea: true)
+    }
+    
+    // Configures a placeholder view.
+    private func configurePlaceholderView() {
+        self.view.addSubview(placeholderView)
+        
+        // Setting up constraints
+        placeholderView.horizontalToSuperview()
+        placeholderView.verticalToSuperview()
     }
     
 }
