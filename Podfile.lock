@@ -1,16 +1,24 @@
 PODS:
+  - Nuke (9.2.2)
+  - SwiftyJSON (4.3.0)
   - TinyConstraints (4.0.1)
 
 DEPENDENCIES:
+  - Nuke (~> 9.0)
+  - SwiftyJSON (~> 4.0)
   - TinyConstraints
 
 SPEC REPOS:
   trunk:
+    - Nuke
+    - SwiftyJSON
     - TinyConstraints
 
 SPEC CHECKSUMS:
+  Nuke: 977324335953a448b3d83e0ef3b4ce4775b155f7
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
   TinyConstraints: 8dd91295e56797648c7bc335dd20e1d91ec4c192
 
-PODFILE CHECKSUM: 0ba817c8576fbd22349ba01cda9b83e121d1e670
+PODFILE CHECKSUM: 624ec39a2263aea79af6f3f0551d423dbcd5fd74
 
 COCOAPODS: 1.10.0

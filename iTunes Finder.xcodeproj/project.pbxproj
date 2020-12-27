@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7839DFCF25990D70006C9C67 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839DFCE25990D70006C9C67 /* DataProvider.swift */; };
+		7839DFD225990DE0006C9C67 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839DFD125990DE0006C9C67 /* NetworkManager.swift */; };
 		78A2EB962598D554002704D7 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A2EB952598D554002704D7 /* PlaceholderView.swift */; };
 		78A2EB9B2598DD25002704D7 /* UIFont+Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A2EB9A2598DD25002704D7 /* UIFont+Traits.swift */; };
 		78C51A7D259632B100A2A6D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51A7C259632B100A2A6D0 /* AppDelegate.swift */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		25CEC58B91462FD2A616917A /* Pods_iTunes_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunes_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		52862607531B40BF651C809E /* Pods-iTunes Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunes Finder.release.xcconfig"; path = "Target Support Files/Pods-iTunes Finder/Pods-iTunes Finder.release.xcconfig"; sourceTree = "<group>"; };
+		7839DFCE25990D70006C9C67 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		7839DFD125990DE0006C9C67 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		78A2EB952598D554002704D7 /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		78A2EB9A2598DD25002704D7 /* UIFont+Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Traits.swift"; sourceTree = "<group>"; };
 		78C51A79259632B100A2A6D0 /* iTunes Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iTunes Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -105,6 +109,15 @@
 			path = UIFont;
 			sourceTree = "<group>";
 		};
+		78A2EB9D25990379002704D7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				7839DFCE25990D70006C9C67 /* DataProvider.swift */,
+				7839DFD125990DE0006C9C67 /* NetworkManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		78C51A70259632B100A2A6D0 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +141,7 @@
 			children = (
 				78C51A9C2596344000A2A6D0 /* Modules */,
 				78C51AD02596B13D00A2A6D0 /* Shared */,
+				78A2EB9D25990379002704D7 /* Services */,
 				78A2EB982598DCF3002704D7 /* Extensions */,
 				78C51A96259633E800A2A6D0 /* Supporting Files */,
 			);
@@ -397,6 +411,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7839DFD225990DE0006C9C67 /* NetworkManager.swift in Sources */,
 				78C51AB925963DD800A2A6D0 /* SearchHistory.swift in Sources */,
 				78C51AA725963D9F00A2A6D0 /* SearchConfigurator.swift in Sources */,
 				78C51ACD259684C900A2A6D0 /* AlbumCollectionViewCell.swift in Sources */,
@@ -409,6 +424,7 @@
 				78C51AD32596B15100A2A6D0 /* ConfigurableView.swift in Sources */,
 				78C51AA625963D9F00A2A6D0 /* SearchViewController.swift in Sources */,
 				78C51AB725963DD800A2A6D0 /* SearchHistoryViewController.swift in Sources */,
+				7839DFCF25990D70006C9C67 /* DataProvider.swift in Sources */,
 				78A2EB9B2598DD25002704D7 /* UIFont+Traits.swift in Sources */,
 				78A2EB962598D554002704D7 /* PlaceholderView.swift in Sources */,
 				78C51A7D259632B100A2A6D0 /* AppDelegate.swift in Sources */,
