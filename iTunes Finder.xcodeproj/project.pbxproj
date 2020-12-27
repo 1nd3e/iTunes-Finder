@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,15 +14,20 @@
 		78C51AA525963D9F00A2A6D0 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AA025963D9F00A2A6D0 /* SearchRouter.swift */; };
 		78C51AA625963D9F00A2A6D0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AA125963D9F00A2A6D0 /* SearchViewController.swift */; };
 		78C51AA725963D9F00A2A6D0 /* SearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AA225963D9F00A2A6D0 /* SearchConfigurator.swift */; };
-		78C51AA825963D9F00A2A6D0 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AA325963D9F00A2A6D0 /* Search.swift */; };
+		78C51AA825963D9F00A2A6D0 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AA325963D9F00A2A6D0 /* Album.swift */; };
 		78C51AB525963DD800A2A6D0 /* SearchHistoryPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AB025963DD800A2A6D0 /* SearchHistoryPresenter.swift */; };
 		78C51AB625963DD800A2A6D0 /* SearchHistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AB125963DD800A2A6D0 /* SearchHistoryRouter.swift */; };
 		78C51AB725963DD800A2A6D0 /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AB225963DD800A2A6D0 /* SearchHistoryViewController.swift */; };
 		78C51AB825963DD800A2A6D0 /* SearchHistoryConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AB325963DD800A2A6D0 /* SearchHistoryConfigurator.swift */; };
 		78C51AB925963DD800A2A6D0 /* SearchHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AB425963DD800A2A6D0 /* SearchHistory.swift */; };
+		78C51ACD259684C900A2A6D0 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51ACC259684C900A2A6D0 /* AlbumCollectionViewCell.swift */; };
+		78C51AD32596B15100A2A6D0 /* ConfigurableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51AD22596B15100A2A6D0 /* ConfigurableView.swift */; };
+		B9D851A6993763B1099C14E7 /* Pods_iTunes_Finder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25CEC58B91462FD2A616917A /* Pods_iTunes_Finder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25CEC58B91462FD2A616917A /* Pods_iTunes_Finder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iTunes_Finder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		52862607531B40BF651C809E /* Pods-iTunes Finder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunes Finder.release.xcconfig"; path = "Target Support Files/Pods-iTunes Finder/Pods-iTunes Finder.release.xcconfig"; sourceTree = "<group>"; };
 		78C51A79259632B100A2A6D0 /* iTunes Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iTunes Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78C51A7C259632B100A2A6D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78C51A85259632B300A2A6D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -32,12 +37,15 @@
 		78C51AA025963D9F00A2A6D0 /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
 		78C51AA125963D9F00A2A6D0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		78C51AA225963D9F00A2A6D0 /* SearchConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchConfigurator.swift; sourceTree = "<group>"; };
-		78C51AA325963D9F00A2A6D0 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
+		78C51AA325963D9F00A2A6D0 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		78C51AB025963DD800A2A6D0 /* SearchHistoryPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryPresenter.swift; sourceTree = "<group>"; };
 		78C51AB125963DD800A2A6D0 /* SearchHistoryRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryRouter.swift; sourceTree = "<group>"; };
 		78C51AB225963DD800A2A6D0 /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
 		78C51AB325963DD800A2A6D0 /* SearchHistoryConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryConfigurator.swift; sourceTree = "<group>"; };
 		78C51AB425963DD800A2A6D0 /* SearchHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistory.swift; sourceTree = "<group>"; };
+		78C51ACC259684C900A2A6D0 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		78C51AD22596B15100A2A6D0 /* ConfigurableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableView.swift; sourceTree = "<group>"; };
+		E1EADC293C54D95C0C3A33EA /* Pods-iTunes Finder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iTunes Finder.debug.xcconfig"; path = "Target Support Files/Pods-iTunes Finder/Pods-iTunes Finder.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +53,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9D851A6993763B1099C14E7 /* Pods_iTunes_Finder.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E5850B451A8FA3A120539FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				25CEC58B91462FD2A616917A /* Pods_iTunes_Finder.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		611B4CFC569062EB020351CA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E1EADC293C54D95C0C3A33EA /* Pods-iTunes Finder.debug.xcconfig */,
+				52862607531B40BF651C809E /* Pods-iTunes Finder.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		78C51A70259632B100A2A6D0 = {
 			isa = PBXGroup;
 			children = (
 				78C51A7B259632B100A2A6D0 /* iTunes Finder */,
 				78C51A7A259632B100A2A6D0 /* Products */,
+				611B4CFC569062EB020351CA /* Pods */,
+				3E5850B451A8FA3A120539FC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -71,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				78C51A9C2596344000A2A6D0 /* Modules */,
+				78C51AD02596B13D00A2A6D0 /* Shared */,
 				78C51A96259633E800A2A6D0 /* Supporting Files */,
 			);
 			path = "iTunes Finder";
@@ -147,6 +176,7 @@
 		78C51AAE25963DB700A2A6D0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				78C51ACB259684A800A2A6D0 /* Cells */,
 				78C51AA125963D9F00A2A6D0 /* SearchViewController.swift */,
 			);
 			path = View;
@@ -155,7 +185,7 @@
 		78C51AAF25963DBA00A2A6D0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				78C51AA325963D9F00A2A6D0 /* Search.swift */,
+				78C51AA325963D9F00A2A6D0 /* Album.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -200,6 +230,30 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		78C51ACB259684A800A2A6D0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				78C51ACC259684C900A2A6D0 /* AlbumCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		78C51AD02596B13D00A2A6D0 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				78C51AD12596B14600A2A6D0 /* Protocols */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		78C51AD12596B14600A2A6D0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				78C51AD22596B15100A2A6D0 /* ConfigurableView.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -207,9 +261,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 78C51A8D259632B400A2A6D0 /* Build configuration list for PBXNativeTarget "iTunes Finder" */;
 			buildPhases = (
+				B9336A1B76DE4A60512A323A /* [CP] Check Pods Manifest.lock */,
 				78C51A75259632B100A2A6D0 /* Sources */,
 				78C51A76259632B100A2A6D0 /* Frameworks */,
 				78C51A77259632B100A2A6D0 /* Resources */,
+				8CFB7FFD420AC96E6AB644C5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -264,6 +320,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		8CFB7FFD420AC96E6AB644C5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iTunes Finder/Pods-iTunes Finder-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-iTunes Finder/Pods-iTunes Finder-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-iTunes Finder/Pods-iTunes Finder-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9336A1B76DE4A60512A323A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iTunes Finder-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		78C51A75259632B100A2A6D0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -271,12 +369,14 @@
 			files = (
 				78C51AB925963DD800A2A6D0 /* SearchHistory.swift in Sources */,
 				78C51AA725963D9F00A2A6D0 /* SearchConfigurator.swift in Sources */,
+				78C51ACD259684C900A2A6D0 /* AlbumCollectionViewCell.swift in Sources */,
 				78C51AB825963DD800A2A6D0 /* SearchHistoryConfigurator.swift in Sources */,
 				78C51AA525963D9F00A2A6D0 /* SearchRouter.swift in Sources */,
 				78C51AB525963DD800A2A6D0 /* SearchHistoryPresenter.swift in Sources */,
 				78C51AA425963D9F00A2A6D0 /* SearchPresenter.swift in Sources */,
-				78C51AA825963D9F00A2A6D0 /* Search.swift in Sources */,
+				78C51AA825963D9F00A2A6D0 /* Album.swift in Sources */,
 				78C51AB625963DD800A2A6D0 /* SearchHistoryRouter.swift in Sources */,
+				78C51AD32596B15100A2A6D0 /* ConfigurableView.swift in Sources */,
 				78C51AA625963D9F00A2A6D0 /* SearchViewController.swift in Sources */,
 				78C51AB725963DD800A2A6D0 /* SearchHistoryViewController.swift in Sources */,
 				78C51A7D259632B100A2A6D0 /* AppDelegate.swift in Sources */,
@@ -415,6 +515,7 @@
 		};
 		78C51A8E259632B400A2A6D0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1EADC293C54D95C0C3A33EA /* Pods-iTunes Finder.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -435,6 +536,7 @@
 		};
 		78C51A8F259632B400A2A6D0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 52862607531B40BF651C809E /* Pods-iTunes Finder.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

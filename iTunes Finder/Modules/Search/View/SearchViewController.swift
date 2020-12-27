@@ -6,12 +6,33 @@
 //
 
 import UIKit
+import TinyConstraints
 
 final class SearchViewController: UIViewController {
     
-    // MARK: - Properties
+    // MARK: - Public Properties
     
     var presenter: SearchPresenterProtocol?
+    
+    // MARK: - Private Properties
+    
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 16
+        layout.minimumInteritemSpacing = 16
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.backgroundColor = .clear
+        
+        collectionView.dataSource = presenter as? UICollectionViewDataSource
+        collectionView.delegate = presenter as? UICollectionViewDelegate
+        
+        collectionView.register(AlbumCollectionViewCell.self, forCellWithReuseIdentifier: AlbumCollectionViewCell.identifier)
+        
+        return collectionView
+    }()
     
     // MARK: - UIViewController Events
     
@@ -37,7 +58,7 @@ extension SearchViewController {
     // Configures colors.
     private func configureColors() {
         // Setting up .systemBackground for the view's backgroundColor
-        // to support dark theme in iOS 13 or newer.
+        // to support dark theme in iOS 13 or newer
         if #available(iOS 13.0, *) {
             self.view.backgroundColor = .systemBackground
         } else {
@@ -66,6 +87,7 @@ extension SearchViewController {
     // Groups all methods that are configuring the view.
     private func configureViews() {
         configureSearchBar()
+        configureCollectionView()
     }
     
     // Configures a search bar in the navigation bar.
@@ -79,6 +101,15 @@ extension SearchViewController {
         
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
+    }
+    
+    // Configures a collection view.
+    private func configureCollectionView() {
+        self.view.addSubview(collectionView)
+        
+        // Setting up constraints
+        collectionView.horizontalToSuperview(usingSafeArea: true)
+        collectionView.verticalToSuperview(usingSafeArea: true)
     }
     
 }
