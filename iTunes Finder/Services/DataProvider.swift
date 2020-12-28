@@ -12,7 +12,7 @@ final class DataProvider {
     
     // MARK: - Types
     
-    typealias AlbumsCompletionBlock = (Result<Array<Album>, Error>) -> Void
+    typealias AlbumsCompletionBlock = (Array<Album>) -> Void
     
     // MARK: - Properties
     
@@ -21,16 +21,12 @@ final class DataProvider {
     // MARK: - Public Methods
     
     // Requests albums from iTunes for a given search query.
-    func getAlbums(term: String, completion: @escaping AlbumsCompletionBlock) {
-        let url = "https://itunes.apple.com/search?&term=\(term)&entity=album"
+    func get(albumsWithName albumName: String, completion: @escaping AlbumsCompletionBlock) {
+        let url = "https://itunes.apple.com/search?&term=\(albumName)&entity=album"
         
-        NetworkManager.shared.request(endpoint: url) { [weak self] data, error in
-            if let data = data {
-                if let albums = self?.parse(albums: data) {
-                    completion(.success(albums))
-                }
-            } else if let error = error {
-                completion(.failure(error))
+        NetworkManager.shared.request(endpoint: url) { [weak self] data in
+            if let data = data, let albums = self?.parse(albums: data) {
+                completion(albums)
             }
         }
     }

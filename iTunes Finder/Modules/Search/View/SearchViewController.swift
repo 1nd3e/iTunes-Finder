@@ -24,7 +24,12 @@ final class SearchViewController: UIViewController {
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        collectionView.backgroundColor = .clear
+        
+        if #available(iOS 13.0, *) {
+            collectionView.backgroundColor = .systemBackground
+        } else {
+            collectionView.backgroundColor = .white
+        }
         
         collectionView.dataSource = presenter as? UICollectionViewDataSource
         collectionView.delegate = presenter as? UICollectionViewDelegate
@@ -38,6 +43,12 @@ final class SearchViewController: UIViewController {
         let image = UIImage(named: "search-placeholder")
         let title = "Empty";  let subtitle = "Try searching for a some song."
         let placeholderView = PlaceholderView(image: image, title: title, subtitle: subtitle)
+        
+        if #available(iOS 13.0, *) {
+            placeholderView.backgroundColor = .systemBackground
+        } else {
+            placeholderView.backgroundColor = .white
+        }
         
         return placeholderView
     }()
@@ -110,6 +121,8 @@ extension SearchViewController {
         
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
+        
+        searchController.searchBar.delegate = presenter as? UISearchBarDelegate
     }
     
     // Configures a collection view.
@@ -134,4 +147,31 @@ extension SearchViewController {
 
 // MARK: - SearchPresenter Delegate
 
-extension SearchViewController: SearchViewProtocol {}
+extension SearchViewController: SearchViewProtocol {
+    
+    // Presents a placeholder content.
+    func shouldPresentCollectionPlaceholder() {
+        placeholderView.isHidden = false
+        
+        UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut) { [weak self] in
+            self?.placeholderView.alpha = 1
+        }
+    }
+    
+    // Reloads data in the collection view.
+    func shouldReloadCollectionData() {
+        DispatchQueue.main.async { [weak self] in
+            self?.collectionView.reloadData()
+        }
+    }
+    
+    // Hides a placeholder content.
+    func shouldHideCollectionPlaceholder() {
+        UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut) { [weak self] in
+            self?.placeholderView.alpha = 0
+        } completion: { [weak self] _ in
+            self?.placeholderView.isHidden = true
+        }
+    }
+    
+}

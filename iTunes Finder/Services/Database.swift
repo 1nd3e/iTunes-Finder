@@ -7,21 +7,4 @@
 
 import Foundation
 
-class Database {
-    
-    // MARK: - Properties
-    
-    static let shared = Database()
-    
-    // MARK: - Methods
-    
-    // Saves an array with albums to Core Data.
-    func save(data albums: [Album]) {
-        albums.forEach { model in
-            CoreDataStack.shared.save { context in
-                _ = CDAlbum(model: model, context: context)
-            }
-        }
-    }
-    
-}
+final class Database {}

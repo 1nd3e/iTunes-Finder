@@ -12,7 +12,6 @@
 		7839DFD725993181006C9C67 /* Data.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7839DFD525993181006C9C67 /* Data.xcdatamodeld */; };
 		7839DFDA259934E1006C9C67 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839DFD9259934E0006C9C67 /* Database.swift */; };
 		7839DFDD259934EA006C9C67 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7839DFDC259934EA006C9C67 /* CoreDataStack.swift */; };
-		78632E2025993943000980AC /* CDAlbum+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78632E1F25993943000980AC /* CDAlbum+Init.swift */; };
 		78A2EB962598D554002704D7 /* PlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A2EB952598D554002704D7 /* PlaceholderView.swift */; };
 		78A2EB9B2598DD25002704D7 /* UIFont+Traits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78A2EB9A2598DD25002704D7 /* UIFont+Traits.swift */; };
 		78C51A7D259632B100A2A6D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78C51A7C259632B100A2A6D0 /* AppDelegate.swift */; };
@@ -41,7 +40,6 @@
 		7839DFD625993181006C9C67 /* CoreDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataModel.xcdatamodel; sourceTree = "<group>"; };
 		7839DFD9259934E0006C9C67 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		7839DFDC259934EA006C9C67 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
-		78632E1F25993943000980AC /* CDAlbum+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CDAlbum+Init.swift"; sourceTree = "<group>"; };
 		78A2EB952598D554002704D7 /* PlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderView.swift; sourceTree = "<group>"; };
 		78A2EB9A2598DD25002704D7 /* UIFont+Traits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Traits.swift"; sourceTree = "<group>"; };
 		78C51A79259632B100A2A6D0 /* iTunes Finder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iTunes Finder.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,14 +91,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		78632E1E25993910000980AC /* CoreData */ = {
-			isa = PBXGroup;
-			children = (
-				78632E1F25993943000980AC /* CDAlbum+Init.swift */,
-			);
-			path = CoreData;
-			sourceTree = "<group>";
-		};
 		78A2EB942598D53F002704D7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +102,6 @@
 		78A2EB982598DCF3002704D7 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				78632E1E25993910000980AC /* CoreData */,
 				78A2EB992598DCFF002704D7 /* UIFont */,
 			);
 			path = Extensions;
@@ -129,9 +118,9 @@
 		78A2EB9D25990379002704D7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				7839DFD9259934E0006C9C67 /* Database.swift */,
 				7839DFCE25990D70006C9C67 /* DataProvider.swift */,
 				7839DFD125990DE0006C9C67 /* NetworkManager.swift */,
-				7839DFD9259934E0006C9C67 /* Database.swift */,
 				7839DFDC259934EA006C9C67 /* CoreDataStack.swift */,
 			);
 			path = Services;
@@ -439,7 +428,6 @@
 				78C51AA525963D9F00A2A6D0 /* SearchRouter.swift in Sources */,
 				78C51AB525963DD800A2A6D0 /* SearchHistoryPresenter.swift in Sources */,
 				78C51AA425963D9F00A2A6D0 /* SearchPresenter.swift in Sources */,
-				78632E2025993943000980AC /* CDAlbum+Init.swift in Sources */,
 				78C51AA825963D9F00A2A6D0 /* Album.swift in Sources */,
 				78C51AB625963DD800A2A6D0 /* SearchHistoryRouter.swift in Sources */,
 				78C51AD32596B15100A2A6D0 /* ConfigurableView.swift in Sources */,
