@@ -151,10 +151,12 @@ extension SearchViewController: SearchViewProtocol {
     
     // Presents a placeholder content.
     func shouldPresentCollectionPlaceholder() {
-        placeholderView.isHidden = false
-        
-        UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut) { [weak self] in
-            self?.placeholderView.alpha = 1
+        DispatchQueue.main.async { [weak self] in
+            self?.placeholderView.isHidden = false
+            
+            UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut) {
+                self?.placeholderView.alpha = 1
+            }
         }
     }
     
@@ -167,10 +169,12 @@ extension SearchViewController: SearchViewProtocol {
     
     // Hides a placeholder content.
     func shouldHideCollectionPlaceholder() {
-        UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut) { [weak self] in
-            self?.placeholderView.alpha = 0
-        } completion: { [weak self] _ in
-            self?.placeholderView.isHidden = true
+        DispatchQueue.main.async { [weak self] in
+            UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut) {
+                self?.placeholderView.alpha = 0
+            } completion: { [weak self] _ in
+                self?.placeholderView.alpha = 0
+            }
         }
     }
     

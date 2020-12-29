@@ -24,10 +24,20 @@ final class SearchPresenter: NSObject, SearchPresenterProtocol {
     private weak var view: SearchViewProtocol?
     private let router: SearchRouterProtocol
     
-    private var searchInProgress = false
-    private var searchData: [Album] = [] {
+    private var albums: [Album] = [] {
+        // Hiding a placeholder content if we have anything to present in the collection.
+        // Otherwise, we should to display a placeholder.
+        willSet {
+            if newValue.count > 0 {
+                view?.shouldHideCollectionPlaceholder()
+            } else {
+                view?.shouldPresentCollectionPlaceholder()
+            }
+        }
+        
+        // Reloading data in the collection view.
         didSet {
-            self.view?.shouldReloadCollectionData()
+            view?.shouldReloadCollectionData()
         }
     }
     
@@ -45,15 +55,15 @@ final class SearchPresenter: NSObject, SearchPresenterProtocol {
 extension SearchPresenter: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return searchData.count
+        return albums.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AlbumCollectionViewCell.identifier, for: indexPath) as? AlbumCollectionViewCell else { return UICollectionViewCell() }
         
         // Configuring the cell with data from the model
-        let model = searchData[indexPath.row]
-        cell.configure(with: model)
+        let album = albums[indexPath.row]
+        cell.configure(with: album)
         
         return cell
     }
@@ -86,26 +96,12 @@ extension SearchPresenter: UICollectionViewDelegateFlowLayout {
 
 extension SearchPresenter: UISearchBarDelegate {
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        // Hiding a placeholder view when search bar text did begin editing
-        self.view?.shouldHideCollectionPlaceholder()
-    }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         // Requests data using a search query
         if let searchText = searchBar.text {
-            DataProvider.shared.get(albumsWithName: searchText) { albums in
-                self.searchData = albums
+            DataProvider.shared.get(albumsWithName: searchText) { [weak self] albums in
+                self?.albums = albums
             }
-            
-            searchInProgress = true
-        }
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        // Presents a placeholder view if there is no searching tasks
-        if searchInProgress == false {
-            self.view?.shouldPresentCollectionPlaceholder()
         }
     }
     
