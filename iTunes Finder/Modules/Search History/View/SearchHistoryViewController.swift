@@ -15,12 +15,22 @@ final class SearchHistoryViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private lazy var placeholderView: PlaceholderView = {
-        let image = UIImage(named: "search-history-placeholder")
-        let title = "No search history";  let subtitle = "Why don't you try searching for something? Lady Gaga, for example."
-        let placeholderView = PlaceholderView(image: image, title: title, subtitle: subtitle)
+    private lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        tableView.register(SearchHistoryTableViewCell.self, forCellReuseIdentifier: SearchHistoryTableViewCell.identifier)
+        tableView.sectionHeaderHeight = 16
+        tableView.sectionFooterHeight = 16
         
-        return placeholderView
+        if #available(iOS 13.0, *) {
+            tableView.backgroundColor = .systemBackground
+        } else {
+            tableView.backgroundColor = .white
+        }
+        
+        tableView.dataSource = presenter as? UITableViewDataSource
+        tableView.delegate = presenter as? UITableViewDelegate
+        
+        return tableView
     }()
     
     // MARK: - UIViewController Events
@@ -75,20 +85,52 @@ extension SearchHistoryViewController {
     
     // Groups all methods that are configuring the view.
     private func configureViews() {
-        configurePlaceholderView()
+        configureTableView()
     }
     
-    // Configures a placeholder view.
-    private func configurePlaceholderView() {
-        self.view.addSubview(placeholderView)
+    // Configures a table view to display search history.
+    private func configureTableView() {
+        self.view.addSubview(tableView)
         
         // Setting up constraints
-        placeholderView.horizontalToSuperview()
-        placeholderView.verticalToSuperview()
+        tableView.horizontalToSuperview()
+        tableView.verticalToSuperview(usingSafeArea: true)
     }
     
 }
 
 // MARK: - SearchHistoryPresenter Delegate
 
-extension SearchHistoryViewController: SearchHistoryViewProtocol {}
+extension SearchHistoryViewController: SearchHistoryViewProtocol {
+    // Prepares the table view for changes in it's content.
+    func tableView(shouldSetUpdates state: Bool) {
+        switch state {
+        case true:
+            tableView.beginUpdates()
+        case false:
+            tableView.endUpdates()
+        }
+    }
+    
+    // Inserts rows in the table view.
+    func tableView(shouldInsertRowsAt indexPath: [IndexPath]) {
+        tableView.insertRows(at: indexPath, with: .automatic)
+    }
+    
+    // Moves rows in the table view.
+    func tableView(shouldMoveRowAt indexPath: IndexPath, to newIndexPath: IndexPath) {
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.insertRows(at: [newIndexPath], with: .automatic)
+    }
+    
+    // Reloads rows in the table view.
+    func tableView(shouldReloadRowsAt indexPath: [IndexPath]) {
+        tableView.reloadRows(at: indexPath, with: .automatic)
+    }
+    
+    // Deletes rows in the table view.
+    func tableView(shouldDeleteRowsAt indexPath: [IndexPath]) {
+        tableView.deleteRows(at: indexPath, with: .automatic)
+    }
+    
+}

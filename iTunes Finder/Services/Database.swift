@@ -7,4 +7,20 @@
 
 import Foundation
 
-final class Database {}
+final class Database {
+    
+    // MARK: - Properties
+    
+    static let shared = Database()
+    
+    // MARK: - Methods
+    
+    // Saves a search query to Core Data.
+    func save(query: String) {
+        CoreDataStack.shared.save { context in
+            let createdDate = Date()
+            _ = SearchItem(query: query, createdDate: createdDate, context: context)
+        }
+    }
+    
+}

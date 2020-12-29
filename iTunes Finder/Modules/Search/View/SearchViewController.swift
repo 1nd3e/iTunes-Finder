@@ -41,7 +41,7 @@ final class SearchViewController: UIViewController {
     
     private lazy var placeholderView: PlaceholderView = {
         let image = UIImage(named: "search-placeholder")
-        let title = "Empty";  let subtitle = "Try searching for a some song."
+        let title = "Empty";  let subtitle = "Try searching for a some song"
         let placeholderView = PlaceholderView(image: image, title: title, subtitle: subtitle)
         
         if #available(iOS 13.0, *) {

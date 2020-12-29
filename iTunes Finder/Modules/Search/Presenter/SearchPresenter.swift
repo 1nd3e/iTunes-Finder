@@ -97,11 +97,13 @@ extension SearchPresenter: UICollectionViewDelegateFlowLayout {
 extension SearchPresenter: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        // Requests data using a search query
         if let searchText = searchBar.text {
+            // Requests data for the presentation
             DataProvider.shared.get(albumsWithName: searchText) { [weak self] albums in
                 self?.albums = albums
             }
+            // Saves a search query
+            Database.shared.save(query: searchText)
         }
     }
     
