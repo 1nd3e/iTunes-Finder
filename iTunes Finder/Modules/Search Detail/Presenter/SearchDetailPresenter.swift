@@ -7,7 +7,9 @@
 
 import UIKit
 
-protocol SearchDetailViewProtocol: class {}
+protocol SearchDetailViewProtocol: class {
+    func shouldReloadData()
+}
 
 protocol SearchDetailPresenterProtocol {
     init(view: SearchDetailViewProtocol, router: SearchDetailRouterProtocol, album: Album)
@@ -22,7 +24,11 @@ final class SearchDetailPresenter: NSObject, SearchDetailPresenterProtocol {
     private let router: SearchDetailRouterProtocol
     
     private let album: Album
-    private var songs: Array<Song> = []
+    private var songs: Array<Song> = [] {
+        didSet {
+            view?.shouldReloadData()
+        }
+    }
     
     // MARK: - Initializers
     
@@ -64,4 +70,22 @@ extension SearchDetailPresenter: UITableViewDataSource {
 
 // MARK: - UITableView Delegate
 
-extension SearchDetailPresenter: UITableViewDelegate {}
+extension SearchDetailPresenter: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForHeaderInSection section: Int) -> CGFloat {
+        return 320
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        // Configures a header view to display detailed information about the album
+        guard let view = tableView.dequeueReusableHeaderFooterView(withIdentifier: AlbumTableViewHeader.identifier) as? AlbumTableViewHeader else { return UIView() }
+        view.configure(with: album)
+        
+        return view
+    }
+    
+}

@@ -16,8 +16,11 @@ final class SearchDetailViewController: UIViewController {
     // MARK: - Private Properties
     
     private lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
+        tableView.alpha = 0
+        tableView.register(AlbumTableViewHeader.self, forHeaderFooterViewReuseIdentifier: AlbumTableViewHeader.identifier)
         tableView.register(SongTableViewCell.self, forCellReuseIdentifier: SongTableViewCell.identifier)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
         
         if #available(iOS 13.0, *) {
             tableView.backgroundColor = .systemBackground
@@ -29,6 +32,21 @@ final class SearchDetailViewController: UIViewController {
         tableView.delegate = presenter as? UITableViewDelegate
         
         return tableView
+    }()
+    
+    private lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let activityIndicatorView = UIActivityIndicatorView()
+        activityIndicatorView.startAnimating()
+        activityIndicatorView.hidesWhenStopped = true
+        activityIndicatorView.translatesAutoresizingMaskIntoConstraints = false
+        
+        if #available(iOS 13.0, *) {
+            activityIndicatorView.style = .large
+        } else {
+            activityIndicatorView.style = .gray
+        }
+        
+        return activityIndicatorView
     }()
     
     // MARK: - UIViewController Events
@@ -69,6 +87,7 @@ extension SearchDetailViewController {
     
     // Configures a title in the navigation bar.
     private func configureNavigationTitle() {
+        self.navigationItem.title = "Album Info"
         self.navigationItem.largeTitleDisplayMode = .never
     }
     
@@ -80,7 +99,17 @@ extension SearchDetailViewController {
     
     // Groups all methods that are configuring the view.
     private func configureViews() {
+        configureActivityIndicatorView()
         configureTableView()
+    }
+    
+    // Configures an activity indicator to display loading process.
+    private func configureActivityIndicatorView() {
+        self.view.addSubview(activityIndicatorView)
+        
+        // Setting up constraints
+        activityIndicatorView.centerXToSuperview()
+        activityIndicatorView.centerYToSuperview()
     }
     
     // Configures a table view to display search history.
@@ -96,4 +125,20 @@ extension SearchDetailViewController {
 
 // MARK: - SearchDetailPresenter Delegate
 
-extension SearchDetailViewController: SearchDetailViewProtocol {}
+extension SearchDetailViewController: SearchDetailViewProtocol {
+    
+    // Reloads the table view with a new data.
+    func shouldReloadData() {
+        DispatchQueue.main.async { [weak self] in
+            self?.tableView.reloadData()
+            
+            // Animating presentation of the table view
+            UIView.animate(withDuration: 0.25, delay: 0.25, options: .curveEaseInOut) {
+                self?.tableView.alpha = 1
+            } completion: { _ in
+                self?.activityIndicatorView.stopAnimating()
+            }
+        }
+    }
+    
+}
