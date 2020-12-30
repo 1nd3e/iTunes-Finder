@@ -82,7 +82,13 @@ extension SearchHistoryPresenter: UITableViewDataSource {
 
 // MARK: - UITableView Delegate
 
-extension SearchHistoryPresenter: UITableViewDelegate {}
+extension SearchHistoryPresenter: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+}
 
 // MARK: - NSFetchedResultsController Delegate
 

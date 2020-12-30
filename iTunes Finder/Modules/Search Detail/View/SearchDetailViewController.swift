@@ -21,6 +21,7 @@ final class SearchDetailViewController: UIViewController {
         tableView.register(AlbumTableViewHeader.self, forHeaderFooterViewReuseIdentifier: AlbumTableViewHeader.identifier)
         tableView.register(SongTableViewCell.self, forCellReuseIdentifier: SongTableViewCell.identifier)
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.allowsSelection = false
         
         if #available(iOS 13.0, *) {
             tableView.backgroundColor = .systemBackground
