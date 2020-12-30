@@ -15,9 +15,13 @@ final class DataProvider {
     typealias AlbumsCompletionBlock = (Array<Album>) -> Void
     typealias SongsCompletionBlock = (Array<Song>) -> Void
     
-    // MARK: - Properties
+    // MARK: - Public Properties
     
     static let shared = DataProvider()
+    
+    // MARK: - Private Properties
+    
+    private let networkManager = NetworkManager()
     
     // MARK: - Public Methods
     
@@ -25,7 +29,7 @@ final class DataProvider {
     func get(albumsWithName albumName: String, completion: @escaping AlbumsCompletionBlock) {
         let url = "https://itunes.apple.com/search?&term=\(albumName)&entity=album"
         
-        NetworkManager.shared.request(endpoint: url) { [weak self] data in
+        networkManager.request(endpoint: url) { [weak self] data in
             if let data = data, let albums = self?.parse(data: data, ofType: Album.self) {
                 completion(albums)
             }
@@ -36,7 +40,7 @@ final class DataProvider {
     func get(songsWithAlbumId albumId: String, completion: @escaping SongsCompletionBlock) {
         let url = "https://itunes.apple.com/lookup?id=\(albumId)&entity=song"
         
-        NetworkManager.shared.request(endpoint: url) { [weak self] data in
+        networkManager.request(endpoint: url) { [weak self] data in
             if let data = data, let songs = self?.parse(data: data, ofType: Song.self) {
                 completion(songs)
             }

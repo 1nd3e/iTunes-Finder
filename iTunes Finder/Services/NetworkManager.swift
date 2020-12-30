@@ -13,10 +13,6 @@ final class NetworkManager {
     
     typealias CompletionBlock = (Data?) -> Void
     
-    // MARK: - Properties
-    
-    static let shared = NetworkManager()
-    
     // MARK: - Methods
     
     // Loads data from network at specified URL.
