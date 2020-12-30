@@ -9,6 +9,9 @@ import UIKit
 
 protocol SearchHistoryRouterProtocol {
     init(view: UIViewController)
+    
+    func moveToSearchResults(with query: String)
+    func moveToSearchDetail(with album: Album)
 }
 
 final class SearchHistoryRouter: SearchHistoryRouterProtocol {
@@ -21,6 +24,29 @@ final class SearchHistoryRouter: SearchHistoryRouterProtocol {
     
     init(view: UIViewController) {
         self.view = view
+    }
+    
+    // MARK: - Methods
+    
+    // Moves view to a SearchResults module.
+    func moveToSearchResults(with query: String) {
+        guard
+            let view = view as? SearchHistoryViewController,
+            let navigationController = view.navigationController,
+            let viewController = SearchResultsConfigurator.shared.configure(with: query) as? SearchResultsViewController
+        else {
+            return
+        }
+        
+        viewController.delegate = view
+        navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    // Moves view to a SearchDetail module.
+    func moveToSearchDetail(with album: Album) {
+        guard let view = view, let navigationController = view.navigationController else { return }
+        let viewController = SearchDetailConfigurator.shared.configure(with: album)
+        navigationController.pushViewController(viewController, animated: true)
     }
     
 }

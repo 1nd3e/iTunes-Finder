@@ -16,29 +16,6 @@ final class SearchViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private lazy var collectionView: UICollectionView = {
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 16
-        layout.minimumInteritemSpacing = 16
-        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 16, right: 16)
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        if #available(iOS 13.0, *) {
-            collectionView.backgroundColor = .systemBackground
-        } else {
-            collectionView.backgroundColor = .white
-        }
-        
-        collectionView.dataSource = presenter as? UICollectionViewDataSource
-        collectionView.delegate = presenter as? UICollectionViewDelegate
-        
-        collectionView.register(AlbumCollectionViewCell.self, forCellWithReuseIdentifier: AlbumCollectionViewCell.identifier)
-        
-        return collectionView
-    }()
-    
     private lazy var placeholderView: PlaceholderView = {
         let image = UIImage(named: "search-placeholder")
         let title = "Empty";  let subtitle = "Try searching for a song"
@@ -106,13 +83,17 @@ extension SearchViewController {
     // Groups all methods that are configuring the view.
     private func configureViews() {
         configureSearchBar()
-        configureCollectionView()
         configurePlaceholderView()
     }
     
     // Configures a search bar in the navigation bar.
     private func configureSearchBar() {
-        let searchController = UISearchController()
+        // Setting up the search controller with the search results controller
+        guard let searchResultsController = SearchResultsConfigurator.shared.configure() as? SearchResultsViewController else { return }
+        searchResultsController.delegate  = self
+        
+        let searchController = UISearchController(searchResultsController: searchResultsController)
+        searchController.searchResultsUpdater = searchResultsController.presenter as? UISearchResultsUpdating
         searchController.obscuresBackgroundDuringPresentation = false
         
         // Setting up the search bar
@@ -121,17 +102,6 @@ extension SearchViewController {
         
         self.navigationItem.searchController = searchController
         self.navigationItem.hidesSearchBarWhenScrolling = false
-        
-        searchController.searchBar.delegate = presenter as? UISearchBarDelegate
-    }
-    
-    // Configures a collection view.
-    private func configureCollectionView() {
-        self.view.addSubview(collectionView)
-        
-        // Setting up constraints
-        collectionView.horizontalToSuperview(usingSafeArea: true)
-        collectionView.verticalToSuperview(usingSafeArea: true)
     }
     
     // Configures a placeholder view.
@@ -147,35 +117,15 @@ extension SearchViewController {
 
 // MARK: - SearchPresenter Delegate
 
-extension SearchViewController: SearchViewProtocol {
+extension SearchViewController: SearchViewProtocol {}
+
+// MARK: - SearchResultsViewController Delegate
+
+extension SearchViewController: SearchResultsViewControllerDelegate {
     
-    // Presents a placeholder content.
-    func shouldPresentCollectionPlaceholder() {
-        DispatchQueue.main.async { [weak self] in
-            self?.placeholderView.isHidden = false
-            
-            UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut) {
-                self?.placeholderView.alpha = 1
-            }
-        }
-    }
-    
-    // Reloads data in the collection view.
-    func shouldReloadCollectionData() {
-        DispatchQueue.main.async { [weak self] in
-            self?.collectionView.reloadData()
-        }
-    }
-    
-    // Hides a placeholder content.
-    func shouldHideCollectionPlaceholder() {
-        DispatchQueue.main.async { [weak self] in
-            UIView.animate(withDuration: 0.2, delay: 0.1, options: .curveEaseInOut) {
-                self?.placeholderView.alpha = 0
-            } completion: { [weak self] _ in
-                self?.placeholderView.alpha = 0
-            }
-        }
+    // Asks the presenter move to the SearchDetail module.
+    func searchResults(didSelect album: Album) {
+        presenter?.moveToSearchDetail(with: album)
     }
     
 }

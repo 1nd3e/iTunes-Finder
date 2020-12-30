@@ -134,3 +134,14 @@ extension SearchHistoryViewController: SearchHistoryViewProtocol {
     }
     
 }
+
+// MARK: - SearchResultsViewController Delegate
+
+extension SearchHistoryViewController: SearchResultsViewControllerDelegate {
+    
+    // Asks the presenter move to the SearchDetail module.
+    func searchResults(didSelect album: Album) {
+        presenter?.moveToSearchDetail(with: album)
+    }
+    
+}

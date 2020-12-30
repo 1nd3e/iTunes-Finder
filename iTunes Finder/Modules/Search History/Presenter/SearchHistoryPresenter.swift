@@ -18,6 +18,7 @@ protocol SearchHistoryViewProtocol: class {
 
 protocol SearchHistoryPresenterProtocol {
     init(view: SearchHistoryViewProtocol, router: SearchHistoryRouterProtocol)
+    func moveToSearchDetail(with album: Album)
 }
 
 final class SearchHistoryPresenter: NSObject, SearchHistoryPresenterProtocol {
@@ -55,6 +56,13 @@ final class SearchHistoryPresenter: NSObject, SearchHistoryPresenterProtocol {
         self.router = router
     }
     
+    // MARK: - Methods
+    
+    // Moves to the SearchDetail module.
+    func moveToSearchDetail(with album: Album) {
+        router.moveToSearchDetail(with: album)
+    }
+    
 }
 
 // MARK: - UITableView Data Source
@@ -85,6 +93,11 @@ extension SearchHistoryPresenter: UITableViewDataSource {
 extension SearchHistoryPresenter: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let searchItem = fetchedResultsController.object(at: indexPath)
+        if let query = searchItem.query {
+            router.moveToSearchResults(with: query)
+        }
+        
         tableView.deselectRow(at: indexPath, animated: true)
     }
     

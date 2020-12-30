@@ -9,7 +9,6 @@ import UIKit
 
 protocol SearchRouterProtocol {
     init(view: UIViewController)
-    
     func moveToSearchDetail(with album: Album)
 }
 
@@ -27,7 +26,7 @@ final class SearchRouter: SearchRouterProtocol {
     
     // MARK: - Methods
     
-    // Moves view to SearchDetail module.
+    // Moves view to a SearchDetail module.
     func moveToSearchDetail(with album: Album) {
         guard let view = view, let navigationController = view.navigationController else { return }
         let viewController = SearchDetailConfigurator.shared.configure(with: album)
