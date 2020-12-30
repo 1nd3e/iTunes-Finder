@@ -90,6 +90,12 @@ extension SearchPresenter: UICollectionViewDelegateFlowLayout {
         return size
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        // Presents a SearchDetail module with the selected album
+        let album = albums[indexPath.row]
+        router.moveToSearchDetail(with: album)
+    }
+    
 }
 
 // MARK: - UISearchBar Delegate

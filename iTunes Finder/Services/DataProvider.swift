@@ -13,6 +13,7 @@ final class DataProvider {
     // MARK: - Types
     
     typealias AlbumsCompletionBlock = (Array<Album>) -> Void
+    typealias SongsCompletionBlock = (Array<Song>) -> Void
     
     // MARK: - Properties
     
@@ -25,26 +26,37 @@ final class DataProvider {
         let url = "https://itunes.apple.com/search?&term=\(albumName)&entity=album"
         
         NetworkManager.shared.request(endpoint: url) { [weak self] data in
-            if let data = data, let albums = self?.parse(albums: data) {
+            if let data = data, let albums = self?.parse(data: data, ofType: Album.self) {
                 completion(albums)
+            }
+        }
+    }
+    
+    // Requests a list of songs of album.
+    func get(songsWithAlbumId albumId: String, completion: @escaping SongsCompletionBlock) {
+        let url = "https://itunes.apple.com/lookup?id=\(albumId)&entity=song"
+        
+        NetworkManager.shared.request(endpoint: url) { [weak self] data in
+            if let data = data, let songs = self?.parse(data: data, ofType: Song.self) {
+                completion(songs)
             }
         }
     }
     
     // MARK: - Private Methods
     
-    // Parses a data into an array of albums.
-    private func parse(albums data: Data) -> [Album]? {
+    // Parses a data into an array of data with type.
+    private func parse<T: ParsableModel>(data: Data, ofType: T.Type) -> [T]? {
         guard let json = try? JSON(data: data), let results = json["results"].arrayObject else { return nil }
-        var albums = [Album]()
+        var parsedData = [T]()
         
         for data in results {
-            if let data = data as? Dictionary<String, Any>, let album = Album(data: data) {
-                albums.append(album)
+            if let data = data as? Dictionary<String, Any>, let parsedItem = T(data: data) {
+                parsedData.append(parsedItem)
             }
         }
         
-        return albums
+        return parsedData
     }
     
 }
