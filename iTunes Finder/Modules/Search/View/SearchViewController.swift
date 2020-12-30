@@ -94,7 +94,6 @@ extension SearchViewController {
         
         let searchController = UISearchController(searchResultsController: searchResultsController)
         searchController.searchResultsUpdater = searchResultsController.presenter as? UISearchResultsUpdating
-        searchController.obscuresBackgroundDuringPresentation = false
         
         // Setting up the search bar
         searchController.searchBar.placeholder = "Artists, songs, or albums"
