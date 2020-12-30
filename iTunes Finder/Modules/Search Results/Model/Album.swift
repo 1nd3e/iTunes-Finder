@@ -17,6 +17,7 @@ struct Album: ParsableModel {
     let price: String
     let currency: String
     let artworkUrl: String
+    let releaseDate: String
     
     // MARK: - Initializers
     
@@ -27,7 +28,8 @@ struct Album: ParsableModel {
             let artistName = data["artistName"] as? String,
             let price = data["collectionPrice"] as? Double,
             let currency = data["currency"] as? String,
-            let artworkUrl = data["artworkUrl100"] as? String
+            let artworkUrl = data["artworkUrl100"] as? String,
+            let releaseDate = data["releaseDate"] as? String
         else {
             return nil
         }
@@ -38,6 +40,7 @@ struct Album: ParsableModel {
         self.price = String(price)
         self.currency = currency
         self.artworkUrl = artworkUrl
+        self.releaseDate = releaseDate
     }
     
 }

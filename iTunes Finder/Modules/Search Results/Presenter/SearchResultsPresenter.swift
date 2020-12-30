@@ -49,7 +49,10 @@ final class SearchResultsPresenter: NSObject, SearchResultsPresenterProtocol {
         throttler.throttle { [weak self] in
             Database.shared.save(query: query)
             DataProvider.shared.get(albumsWithName: query) { albums in
-                self?.albums = albums
+                // Setting albums sorted by release date
+                self?.albums = albums.sorted { (a, b) -> Bool in
+                    return a.releaseDate > b.releaseDate
+                }
             }
         }
     }
