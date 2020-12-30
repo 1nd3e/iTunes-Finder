@@ -96,7 +96,7 @@ final class PlaceholderView: UIView {
         self.addSubview(subtitleLabel)
         
         // Setting up constraints
-        subtitleLabel.topToBottom(of: titleLabel, offset: 4)
+        subtitleLabel.topToBottom(of: titleLabel, offset: 8)
         subtitleLabel.horizontalToSuperview(insets: .horizontal(32))
     }
     
@@ -106,7 +106,7 @@ final class PlaceholderView: UIView {
         
         // Setting up constraints
         imageView.horizontalToSuperview(insets: .horizontal(32))
-        imageView.bottomToTop(of: titleLabel, offset: -8)
+        imageView.bottomToTop(of: titleLabel, offset: -16)
         imageView.aspectRatio(2 / 1)
     }
     
