@@ -96,6 +96,7 @@ extension SearchViewController {
         searchController.searchResultsUpdater = searchResultsController.presenter as? UISearchResultsUpdating
         
         // Setting up the search bar
+        searchController.searchBar.autocapitalizationType = .words
         searchController.searchBar.placeholder = "Artists, songs, or albums"
         searchController.searchBar.tintColor = .systemPink
         
