@@ -370,7 +370,6 @@
 		78C51A9D25963D8E00A2A6D0 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				78C51AAF25963DBA00A2A6D0 /* Model */,
 				78C51AAE25963DB700A2A6D0 /* View */,
 				78C51AAD25963DB000A2A6D0 /* Presenter */,
 				78C51AAC25963DAC00A2A6D0 /* Router */,
@@ -382,7 +381,6 @@
 		78C51A9E25963D9400A2A6D0 /* Search History */ = {
 			isa = PBXGroup;
 			children = (
-				78C51ABF25963DEF00A2A6D0 /* Model */,
 				78C51ABE25963DEC00A2A6D0 /* View */,
 				78C51ABD25963DE600A2A6D0 /* Presenter */,
 				78C51ABC25963DE200A2A6D0 /* Router */,
@@ -423,13 +421,6 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		78C51AAF25963DBA00A2A6D0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		78C51ABB25963DDC00A2A6D0 /* Configurator */ = {
 			isa = PBXGroup;
 			children = (
@@ -461,13 +452,6 @@
 				78C51AB225963DD800A2A6D0 /* SearchHistoryViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		78C51ABF25963DEF00A2A6D0 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		78C51AD02596B13D00A2A6D0 /* Shared */ = {
