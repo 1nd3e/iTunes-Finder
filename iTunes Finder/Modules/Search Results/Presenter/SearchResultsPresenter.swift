@@ -48,10 +48,18 @@ final class SearchResultsPresenter: NSObject, SearchResultsPresenterProtocol {
     func search(text query: String) {
         throttler.throttle { [weak self] in
             Database.shared.save(query: query)
-            DataProvider.shared.get(albumsWithName: query) { albums in
-                // Setting albums sorted by release date
-                self?.albums = albums.sorted { (a, b) -> Bool in
-                    return a.releaseDate > b.releaseDate
+            DataProvider.shared.get(albumsWithName: query) { result in
+                switch result {
+                case .success(let albums):
+                    // Setting albums sorted by release date
+                    self?.albums = albums.sorted { (a, b) -> Bool in
+                        return a.releaseDate > b.releaseDate
+                    }
+                case .failure(let error):
+                    // Presenting an error message if something went wrong
+                    DispatchQueue.main.async {
+                        self?.router.presentAlert(title: "Error", message: error.localizedDescription)
+                    }
                 }
             }
         }

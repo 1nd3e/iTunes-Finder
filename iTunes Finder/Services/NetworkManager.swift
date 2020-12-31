@@ -11,7 +11,7 @@ final class NetworkManager {
     
     // MARK: - Types
     
-    typealias CompletionBlock = (Data?) -> Void
+    typealias CompletionBlock = (Data?, Error?) -> Void
     
     // MARK: - Methods
     
@@ -20,8 +20,8 @@ final class NetworkManager {
         guard let urlString = url.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed),
               let url = URL(string: urlString) else { return }
         
-        let dataTask = URLSession.shared.dataTask(with: url) { data, _, _ in
-            completion(data)
+        let dataTask = URLSession.shared.dataTask(with: url) { data, _, error in
+            completion(data, error)
         }
         
         dataTask.resume()

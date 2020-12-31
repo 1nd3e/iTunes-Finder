@@ -42,8 +42,17 @@ final class SearchDetailPresenter: NSObject, SearchDetailPresenterProtocol {
     
     // Fetches a song list of the album.
     func fetchSongs() {
-        DataProvider.shared.get(songsWithAlbumId: album.id) { songs in
-            self.songs = songs
+        DataProvider.shared.get(songsWithAlbumId: album.id) { [weak self] result in
+            switch result {
+            case .success(let songs):
+                // Setting the album's song list
+                self?.songs = songs
+            case .failure(let error):
+                // Presenting an error message if something went wrong
+                DispatchQueue.main.async {
+                    self?.router.presentAlert(title: "Error", message: error.localizedDescription)
+                }
+            }
         }
     }
     

@@ -12,8 +12,8 @@ final class DataProvider {
     
     // MARK: - Types
     
-    typealias AlbumsCompletionBlock = (Array<Album>) -> Void
-    typealias SongsCompletionBlock = (Array<Song>) -> Void
+    typealias AlbumsCompletionBlock = (Result<Array<Album>, Error>) -> Void
+    typealias SongsCompletionBlock = (Result<Array<Song>, Error>) -> Void
     
     // MARK: - Public Properties
     
@@ -29,9 +29,11 @@ final class DataProvider {
     func get(albumsWithName albumName: String, completion: @escaping AlbumsCompletionBlock) {
         let url = "https://itunes.apple.com/search?&term=\(albumName)&entity=album"
         
-        networkManager.request(endpoint: url) { [weak self] data in
+        networkManager.request(endpoint: url) { [weak self] data, error in
             if let data = data, let albums = self?.parse(data: data, ofType: Album.self) {
-                completion(albums)
+                completion(.success(albums))
+            } else if let error = error {
+                completion(.failure(error))
             }
         }
     }
@@ -40,9 +42,11 @@ final class DataProvider {
     func get(songsWithAlbumId albumId: String, completion: @escaping SongsCompletionBlock) {
         let url = "https://itunes.apple.com/lookup?id=\(albumId)&entity=song"
         
-        networkManager.request(endpoint: url) { [weak self] data in
+        networkManager.request(endpoint: url) { [weak self] data, error in
             if let data = data, let songs = self?.parse(data: data, ofType: Song.self) {
-                completion(songs)
+                completion(.success(songs))
+            } else if let error = error {
+                completion(.failure(error))
             }
         }
     }

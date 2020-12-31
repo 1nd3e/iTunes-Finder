@@ -9,6 +9,7 @@ import UIKit
 
 protocol SearchDetailRouterProtocol {
     init(view: UIViewController)
+    func presentAlert(title: String, message: String)
 }
 
 final class SearchDetailRouter: SearchDetailRouterProtocol {
@@ -21,6 +22,19 @@ final class SearchDetailRouter: SearchDetailRouterProtocol {
     
     init(view: UIViewController) {
         self.view = view
+    }
+    
+    // MARK: - Methods
+    
+    // Presents an alert with title and message.
+    func presentAlert(title: String, message: String) {
+        guard let view = view as? SearchDetailViewController else { return }
+        
+        let action = UIAlertAction(title: "Done", style: .default)
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(action)
+        
+        view.present(alertController, animated: true)
     }
     
 }
