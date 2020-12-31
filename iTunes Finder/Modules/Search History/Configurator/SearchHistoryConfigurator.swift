@@ -9,13 +9,7 @@ import UIKit
 
 final class SearchHistoryConfigurator {
     
-    // MARK: - Types
-    
-    static let shared = SearchHistoryConfigurator()
-    
-    // MARK: - Methods
-    
-    func configure() -> UIViewController {
+    static func configure() -> UIViewController {
         let view = SearchHistoryViewController()
         let navigationController = UINavigationController(rootViewController: view)
         let router = SearchHistoryRouter(view: view)

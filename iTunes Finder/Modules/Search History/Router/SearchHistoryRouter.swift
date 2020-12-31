@@ -33,7 +33,7 @@ final class SearchHistoryRouter: SearchHistoryRouterProtocol {
         guard
             let view = view as? SearchHistoryViewController,
             let navigationController = view.navigationController,
-            let viewController = SearchResultsConfigurator.shared.configure(with: query) as? SearchResultsViewController
+            let viewController = SearchResultsConfigurator.configure(with: query) as? SearchResultsViewController
         else {
             return
         }
@@ -45,7 +45,7 @@ final class SearchHistoryRouter: SearchHistoryRouterProtocol {
     // Moves view to a SearchDetail module.
     func moveToSearchDetail(with album: Album) {
         guard let view = view, let navigationController = view.navigationController else { return }
-        let viewController = SearchDetailConfigurator.shared.configure(with: album)
+        let viewController = SearchDetailConfigurator.configure(with: album)
         navigationController.pushViewController(viewController, animated: true)
     }
     

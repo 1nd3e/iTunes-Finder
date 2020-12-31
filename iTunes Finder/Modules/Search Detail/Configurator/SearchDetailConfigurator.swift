@@ -9,13 +9,7 @@ import UIKit
 
 final class SearchDetailConfigurator {
     
-    // MARK: - Types
-    
-    static let shared = SearchDetailConfigurator()
-    
-    // MARK: - Methods
-    
-    func configure(with album: Album) -> UIViewController {
+    static func configure(with album: Album) -> UIViewController {
         let view = SearchDetailViewController()
         let router = SearchDetailRouter(view: view)
         let presenter = SearchDetailPresenter(view: view, router: router, album: album)

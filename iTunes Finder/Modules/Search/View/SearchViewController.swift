@@ -89,7 +89,7 @@ extension SearchViewController {
     // Configures a search bar in the navigation bar.
     private func configureSearchBar() {
         // Setting up the search controller with the search results controller
-        guard let searchResultsController = SearchResultsConfigurator.shared.configure() as? SearchResultsViewController else { return }
+        guard let searchResultsController = SearchResultsConfigurator.configure() as? SearchResultsViewController else { return }
         searchResultsController.delegate  = self
         
         let searchController = UISearchController(searchResultsController: searchResultsController)

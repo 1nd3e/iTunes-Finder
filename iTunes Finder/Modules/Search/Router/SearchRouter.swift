@@ -29,7 +29,7 @@ final class SearchRouter: SearchRouterProtocol {
     // Moves view to a SearchDetail module.
     func moveToSearchDetail(with album: Album) {
         guard let view = view, let navigationController = view.navigationController else { return }
-        let viewController = SearchDetailConfigurator.shared.configure(with: album)
+        let viewController = SearchDetailConfigurator.configure(with: album)
         navigationController.pushViewController(viewController, animated: true)
     }
     

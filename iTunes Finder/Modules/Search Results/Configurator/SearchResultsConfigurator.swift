@@ -9,13 +9,7 @@ import UIKit
 
 final class SearchResultsConfigurator {
     
-    // MARK: - Types
-    
-    static let shared = SearchResultsConfigurator()
-    
-    // MARK: - Methods
-    
-    func configure() -> UIViewController {
+    static func configure() -> UIViewController {
         let view = SearchResultsViewController()
         let router = SearchResultsRouter(view: view)
         let presenter = SearchResultsPresenter(view: view, router: router)
@@ -24,7 +18,7 @@ final class SearchResultsConfigurator {
         return view
     }
     
-    func configure(with query: String) -> UIViewController {
+    static func configure(with query: String) -> UIViewController {
         let view = SearchResultsViewController()
         let router = SearchResultsRouter(view: view)
         let presenter = SearchResultsPresenter(view: view, router: router, query: query)

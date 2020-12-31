@@ -9,13 +9,7 @@ import UIKit
 
 final class SearchConfigurator {
     
-    // MARK: - Types
-    
-    static let shared = SearchConfigurator()
-    
-    // MARK: - Methods
-    
-    func configure() -> UIViewController {
+    static func configure() -> UIViewController {
         let view = SearchViewController()
         let navigationController = UINavigationController(rootViewController: view)
         let router = SearchRouter(view: view)

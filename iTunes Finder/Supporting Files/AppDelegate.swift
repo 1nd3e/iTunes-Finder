@@ -15,11 +15,11 @@ class AppDelegate: UIResponder {
     var window: UIWindow?
     
     private lazy var tabBarController: UITabBarController = {
-        let searchViewController = SearchConfigurator.shared.configure()
+        let searchViewController = SearchConfigurator.configure()
         searchViewController.tabBarItem.title = "Search"
         searchViewController.tabBarItem.image = UIImage(named: "ic-tab-search")
         
-        let searchHistoryViewController = SearchHistoryConfigurator.shared.configure()
+        let searchHistoryViewController = SearchHistoryConfigurator.configure()
         searchHistoryViewController.tabBarItem.title = "History"
         searchHistoryViewController.tabBarItem.image = UIImage(named: "ic-tab-history")
         
