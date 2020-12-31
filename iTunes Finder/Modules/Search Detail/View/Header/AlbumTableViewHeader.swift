@@ -188,7 +188,7 @@ final class AlbumTableViewHeader: UITableViewHeaderFooterView, ConfigurableView 
         self.contentView.addSubview(artistNameLabel)
         
         // Setting up constraints
-        artistNameLabel.topToBottom(of: nameLabel)
+        artistNameLabel.topToBottom(of: nameLabel, offset: 8)
         artistNameLabel.horizontalToSuperview(insets: .horizontal(20))
     }
     
